@@ -1,4 +1,4 @@
-package com.zty.common.base;
+package com.zty.common.observer;
 
 
 import android.accounts.NetworkErrorException;

@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.zty.common.base.NetObserver;
+import com.zty.common.observer.NetObserver;
 import com.zty.http.service.WanAPI;
 import com.zty.pojo.PublicAccountBean;
 
