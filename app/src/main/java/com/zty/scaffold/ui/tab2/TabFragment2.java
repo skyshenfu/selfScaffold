@@ -20,8 +20,7 @@ public class TabFragment2 extends BaseVMFragment {
 
     @Override
     public DataBindingBuilder getDataBindingBuilder() {
-        return new DataBindingBuilder(R.layout.fragment_tab_2)
-                .addBindingParam(BR.proxy,new Tab2ClickProxy());
+        return new DataBindingBuilder(R.layout.fragment_tab_2).addBindingParam(BR.proxy,new Tab2ClickProxy());
     }
     @Override
     public void onDestroyView() {

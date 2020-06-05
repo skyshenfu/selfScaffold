@@ -35,7 +35,6 @@ dependencies {
     implementation project(path: ':http')
     implementation project(path: ':common')
     implementation 'com.google.android.material:material:1.0.0'
-    compileOnly  'androidx.navigation:navigation-runtime:2.2.2'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
 }
