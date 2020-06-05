@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.zty.common.global.GlobalViewModel;
 
@@ -58,6 +60,10 @@ public class BaseFragment extends Fragment {
 
     public GlobalViewModel getGlobalViewModel() {
         return mGlobalViewModel;
+    }
+
+    protected NavController nav() {
+        return NavHostFragment.findNavController(this);
     }
 
 }
