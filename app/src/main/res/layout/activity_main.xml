@@ -11,16 +11,17 @@
             type="java.lang.String" />
     </data>
 
-    <merge
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/demo_host_fragment"
-            android:name="androidx.navigation.fragment.NavHostFragment"
+        <fragment
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/demo_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             app:defaultNavHost="true"
-            app:navGraph="@navigation/main_navigation" />
-    </merge>
+            app:navGraph="@navigation/main_navigation"
+            />
+    </FrameLayout>
 </layout>
