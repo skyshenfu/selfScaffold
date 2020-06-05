@@ -32,7 +32,6 @@ public abstract class BaseVMFragment extends BaseFragment implements SelfBinding
         mBinding = binding;
         return mBinding.getRoot();
     }
-   protected abstract DataBindingBuilder getDataBindingBuilder();
 
     protected abstract void  initViewModels();
 

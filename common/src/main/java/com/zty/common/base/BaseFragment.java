@@ -2,19 +2,25 @@ package com.zty.common.base;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.zty.common.global.GlobalViewModel;
 
 public class BaseFragment extends Fragment {
 
     protected BaseActivity mActivity;
     //Fragment内ViewModel的供给器
     private ViewModelProvider mFragmentProvider;
-    //Ac内ViewModel的供给器
+    //Activity内ViewModel的供给器
     private ViewModelProvider mActivityProvider;
+    //全局级别的ViewModel的伴随App的生命周期
+    private GlobalViewModel mGlobalViewModel;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -26,6 +32,13 @@ public class BaseFragment extends Fragment {
     public void onAttach(@NonNull Activity activity) {
         super.onAttach(activity);
         this.mActivity= (BaseActivity) activity;
+
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mGlobalViewModel = ((BaseApplication) mActivity.getApplicationContext()).getAppViewModelProvider(mActivity).get(GlobalViewModel.class);
 
     }
 
@@ -42,4 +55,9 @@ public class BaseFragment extends Fragment {
         }
         return mActivityProvider.get(modelClass);
     }
+
+    public GlobalViewModel getGlobalViewModel() {
+        return mGlobalViewModel;
+    }
+
 }
