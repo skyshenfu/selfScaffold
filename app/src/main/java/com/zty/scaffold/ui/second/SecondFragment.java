@@ -22,4 +22,14 @@ public class SecondFragment extends BaseVMFragment {
     public DataBindingBuilder getDataBindingBuilder() {
         return new DataBindingBuilder(R.layout.fragment_second);
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }
