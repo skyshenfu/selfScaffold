@@ -1,32 +1,24 @@
 package com.zty.scaffold;
+import android.view.View;
+import com.zty.common.base.BaseVMActivity;
+import com.zty.common.databinding.DataBindingBuilder;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.util.Log;
-
-import com.zty.common.observer.NetObserver;
-import com.zty.http.service.WanAPI;
-import com.zty.pojo.PublicAccountBean;
-
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseVMActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        WanAPI.getInstance().getLiveDataPublicAccount().observe(this,new NetObserver<List<PublicAccountBean>>(){
-            @Override
-            protected void successCallBack(List<PublicAccountBean> data) {
-                Log.e("TAG", "successCallBack: " );
-            }
+    protected void afterOnCreate(View root) {
 
-            @Override
-            protected void errorCallback(Throwable throwable) {
-                super.errorCallback(throwable);
-            }
-        });
+    }
+
+    @Override
+    protected void initViewModels() {
+    }
+
+    @Override
+    public DataBindingBuilder getDataBindingBuilder() {
+        return new DataBindingBuilder(R.layout.activity_main)
+                .addBindingParam(BR.switch1,true)
+                .addBindingParam(BR.textContent,"这里设置");
     }
 }

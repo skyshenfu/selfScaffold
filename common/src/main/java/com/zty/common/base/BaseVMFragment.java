@@ -16,20 +16,16 @@ import com.zty.common.databinding.DataBindingBuilder;
 
 public abstract class BaseVMFragment extends BaseFragment implements SelfBinding{
     //ViewBinding对象
-    private ViewDataBinding mBinding;
-
-    //此方法在切勿在onCreateView之前使用
-    public ViewDataBinding getViewDataBinding() {
-        return mBinding;
-    }
+    protected ViewDataBinding mBinding;
+    private DataBindingBuilder mDataBindingBuilder;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        DataBindingBuilder dataBindingBuilder = getDataBindingBuilder();
-        ViewDataBinding binding = DataBindingUtil.inflate(inflater, dataBindingBuilder.getLayoutID(), container, false);
-        binding.setLifecycleOwner(this);
-        mBinding = binding;
+        initViewModels();
+        mDataBindingBuilder = getDataBindingBuilder();
+        mBinding= DataBindingUtil.inflate(inflater, mDataBindingBuilder.getLayoutID(), container, false);
+        mBinding.setLifecycleOwner(this);
         return mBinding.getRoot();
     }
 
@@ -38,17 +34,17 @@ public abstract class BaseVMFragment extends BaseFragment implements SelfBinding
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initViewModels();
         setDataForDataBinding();
-        afterViewCreated();
+        afterViewCreated(view);
     }
 
-    protected abstract void afterViewCreated();
+    protected abstract void afterViewCreated(View view);
 
     private void setDataForDataBinding() {
-        SparseArray<Object> bindingParams = getDataBindingBuilder().getBindingParams();
+        SparseArray<Object> bindingParams = mDataBindingBuilder.getBindingParams();
         for (int i = 0, length = bindingParams.size(); i < length; i++) {
             mBinding.setVariable(bindingParams.keyAt(i), bindingParams.valueAt(i));
         }
     }
+
 }
