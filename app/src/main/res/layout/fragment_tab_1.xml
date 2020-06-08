@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="switch1"
-            type="java.lang.Boolean" />
+            name="proxy"
+            type="com.zty.scaffold.ui.tab1.TabFragment1.Tab1ClickProxy" />
         <variable
-            name="textContent"
-            type="java.lang.String" />
+            name="vm"
+            type="com.zty.scaffold.ui.tab1.Tab1ViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:text="1"
+            android:onClick="@{()->proxy.clickCenter()}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

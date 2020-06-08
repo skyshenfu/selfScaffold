@@ -8,6 +8,8 @@ import com.zty.http.ResponseRawBean;
 
 import java.util.List;
 
+import retrofit2.Call;
+
 public class WanAPI {
 
     private WanService wanService;
@@ -25,6 +27,10 @@ public class WanAPI {
 
     public MutableLiveData<ResponseRawBean<List<PublicAccountBean>>> getLiveDataPublicAccount(){
         return wanService.getLiveDataPublicAccount();
+    }
+
+    public Call<ResponseRawBean<List<PublicAccountBean>>> getLPublicAccount(){
+        return wanService.getCallPublicAccount();
     }
 
 }
