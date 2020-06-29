@@ -1,12 +1,12 @@
 package com.zty.scaffold.ui.tab1;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.zty.common.base.BaseVMFragment;
 import com.zty.common.databinding.DataBindingBuilder;
 import com.zty.common.observer.NetObserver;
-import com.zty.http.ResponseRawBean;
 import com.zty.pojo.PublicAccountBean;
 import com.zty.scaffold.BR;
 import com.zty.scaffold.R;
@@ -22,7 +22,8 @@ public class TabFragment1 extends BaseVMFragment {
     }
 
     @Override
-    protected void afterViewCreated(View view) {
+    protected void afterViewCreated(View view, Bundle savedInstanceState) {
+        Log.e("TAG", "afterViewCreated: TabFragment1"+this.toString());
         mViewModel.getAccountLiveData().observe(getViewLifecycleOwner(), new NetObserver<List<PublicAccountBean>>() {
             @Override
             protected void successCallBack(List<PublicAccountBean> data) {

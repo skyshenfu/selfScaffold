@@ -1,5 +1,7 @@
 package com.zty.scaffold.ui.tab3;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.zty.common.base.BaseVMFragment;
@@ -13,7 +15,8 @@ public class TabFragment3 extends BaseVMFragment {
     }
 
     @Override
-    protected void afterViewCreated(View view) {
+    protected void afterViewCreated(View view, Bundle savedInstanceState) {
+        Log.e("TAG", "afterViewCreated: TabFragment3"+this.toString());
 
     }
 

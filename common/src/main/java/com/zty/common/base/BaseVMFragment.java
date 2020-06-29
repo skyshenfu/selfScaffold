@@ -35,10 +35,10 @@ public abstract class BaseVMFragment extends BaseFragment implements SelfBinding
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setDataForDataBinding();
-        afterViewCreated(view);
+        afterViewCreated(view,savedInstanceState);
     }
 
-    protected abstract void afterViewCreated(View view);
+    protected abstract void afterViewCreated(View view, Bundle savedInstanceState);
 
     private void setDataForDataBinding() {
         SparseArray<Object> bindingParams = mDataBindingBuilder.getBindingParams();

@@ -1,6 +1,12 @@
 package com.zty.scaffold.ui.second;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 
 import com.zty.common.base.BaseVMFragment;
 import com.zty.common.databinding.DataBindingBuilder;
@@ -14,7 +20,20 @@ public class SecondFragment extends BaseVMFragment {
     }
 
     @Override
-    protected void afterViewCreated(View view) {
+    public void onAttach(@NonNull Activity activity) {
+        super.onAttach(activity);
+
+    }
+
+    @Override
+    protected void afterViewCreated(View view, Bundle savedInstanceState) {
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                nav().navigate(R.id.popup_second);
+            }
+        });
+        Log.e("TAG", "afterViewCreated: SecondFragment"+this.toString());
 
     }
 
@@ -32,4 +51,5 @@ public class SecondFragment extends BaseVMFragment {
     public void onDestroy() {
         super.onDestroy();
     }
+
 }

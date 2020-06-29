@@ -1,5 +1,7 @@
 package com.zty.scaffold.ui.host;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -23,7 +25,8 @@ public class HostFragment extends BaseVMFragment {
     }
 
     @Override
-    protected void afterViewCreated(View view) {
+    protected void afterViewCreated(View view, Bundle savedInstanceState) {
+        Log.e("TAG", "afterViewCreated: HostFragment"+this.toString());
         mViewPager=view.findViewById(R.id.viewpager);
         bottomNavigationView=view.findViewById(R.id.bottom_navigation);
         mViewPager.setOffscreenPageLimit(1);
@@ -44,6 +47,7 @@ public class HostFragment extends BaseVMFragment {
                     case  R.id.item_home:
                         mViewPager.setCurrentItem(0);
                         break;
+
                     case  R.id.item_res:
                         mViewPager.setCurrentItem(1);
                         break;

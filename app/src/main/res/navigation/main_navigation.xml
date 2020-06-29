@@ -22,5 +22,10 @@
         android:name="com.zty.scaffold.ui.second.SecondFragment"
         android:label="fragment2"
         tools:layout="@layout/fragment_second" >
+
+        <action
+            android:id="@+id/popup_second"
+            app:popUpTo="@id/host_fragment"
+            />
     </fragment>
 </navigation>
